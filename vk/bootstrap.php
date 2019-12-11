@@ -10,6 +10,8 @@ App::bind('request', new Request);
 App::bind('view_path', __DIR__ . '/../resources/views/');
 
 
-$config = require '../config/database.php';
+// $config = require '../config/database.php';
+App::bind('db_config', require '../config/database.php');
 
-Connection::new($config['connections']['mysql']);
+// Connection::new($config['connections']['mysql']);
+Connection::new(App::get('db_config')['connections']['mysql']);

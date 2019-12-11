@@ -19,4 +19,4 @@ $connection = Connection::new(App::get('db_config')['connections']['mysql']);
 
 $database = new QueryBuilder($connection);
 
-var_dump($database->selectAll('usuarioss'));
+var_dump($database->selectAll('usuarios'));

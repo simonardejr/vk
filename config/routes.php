@@ -1,3 +1,7 @@
 <?php
 
-$router->get('', 'home');
+$router->get('', 'PageController@home');
+
+$router->get('teste', function() {
+    echo 'teste';
+});

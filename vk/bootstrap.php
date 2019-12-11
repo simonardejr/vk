@@ -4,3 +4,6 @@ use DesafioVk\Vk\App;
 use DesafioVk\Vk\Request;
 
 App::bind('request', new Request);
+
+// configurando o path das views para "/resources/views"
+App::bind('view_path', __DIR__ . '/../resources/views/');

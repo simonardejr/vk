@@ -2,10 +2,13 @@
 
 namespace DesafioVk\App\Controllers;
 
-class PageController
+use DesafioVk\App\Controllers\BaseController;
+class PageController extends BaseController
 {
     public function home()
     {
-        echo 'Hello World!';
+        // echo 'Hello World!';
+        $content = 'Hello World! ' . time();
+        return $this->view('home', compact('content'));
     }
 }

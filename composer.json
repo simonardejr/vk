@@ -1,0 +1,8 @@
+{
+    "autoload": {
+        "psr-4": {
+            "DesafioVk\\Vk\\": "vk/",
+            "DesafioVk\\App\\": "app/"
+        }
+    }
+}

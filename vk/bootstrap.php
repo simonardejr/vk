@@ -2,10 +2,6 @@
 
 use DesafioVk\Vk\Router;
 
-// bootstrap
-var_dump('bootstrap');
-
-
-$router = new Router;
+$router = Router::config('../config/routes.php');
 
 var_dump($router->listRoutes());

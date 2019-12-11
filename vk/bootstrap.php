@@ -15,8 +15,11 @@ App::bind('view_path', __DIR__ . '/../resources/views/');
 App::bind('db_config', require '../config/database.php');
 
 // Connection::new($config['connections']['mysql']);
-$connection = Connection::new(App::get('db_config')['connections']['mysql']);
 
-$database = new QueryBuilder($connection);
+App::bind('database', new QueryBuilder(
+    Connection::new( 
+        App::get('db_config')['connections']['mysql'] 
+    )
+));
 
-var_dump($database->selectAll('usuarios'));
+var_dump(App::get('database')->selectAll('usuarios'));

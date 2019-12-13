@@ -22,4 +22,4 @@ App::bind('database', new QueryBuilder(
     )
 ));
 
-var_dump(App::get('database')->selectAll('usuarios'));
+// var_dump(App::get('database')->selectAll('usuarios'));

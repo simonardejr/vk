@@ -32,6 +32,11 @@ class Router
         $this->routes['get'][$uri] = $controller;
     }
 
+    public function post($uri, $controller)
+    {
+        $this->routes['post'][$uri] = $controller;
+    }
+
     public function call($uri, $requestType)
     {
         $requestType = strtolower($requestType);

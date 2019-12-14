@@ -10,12 +10,12 @@ class XmlController extends BaseController
 {
     public function index()
     {
-        return $this->view('xml_index', compact('content'));
+        return $this->view('xml_index');
     }
 
     public function import()
     {
-        if( isset($_FILES['arquivo']) ) {
+        if ( isset($_FILES['arquivo']) ) {
 
             $fileName = $_FILES['arquivo']['tmp_name'];
 

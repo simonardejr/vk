@@ -8,6 +8,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="/cartorio/adicionar">
+                    <span data-feather="plus"></span>
+                    Adicionar cartório
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/importar/xml">
                     <span data-feather="file"></span>
                     Importar XML

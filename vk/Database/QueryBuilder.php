@@ -59,4 +59,59 @@ class QueryBuilder
             die('Whoops...' . $e->getMessage());
         }
     }
+
+    public function update($table, $parameters, $where)
+    {
+        $parameters = (array)$parameters;
+
+        $sql = sprintf('UPDATE %s SET %s WHERE %s',
+            $table, 
+            implode(', ', $this->prepareFields($parameters)),
+            implode(', ', $this->prepareFields($where)), 
+        );
+
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute($parameters);
+
+            return true;
+        } catch( \PDOException $e ) {
+            die('Whoops...' . $e->getMessage());
+        }
+    }
+
+    public function delete($table, $id)
+    {
+        $sql = sprintf('DELETE FROM %s WHERE %s LIMIT 1',
+            $table,
+            implode(' ', $this->prepareFields($id))
+        );
+
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute($id);
+
+            return true;
+        } catch( \PDOException $e ) {
+            die('Whoops...' . $e->getMessage());
+        }
+    }
+
+    public function prepareFields($fields)
+    {
+        $sql = [];
+        foreach($fields as $key => $value) {
+            if ( empty($value) && ! is_numeric($value) ) {
+                continue;
+            }
+
+            if( ! is_numeric($value) ) {
+                $value = '"' . $value . '"';
+            }
+
+            $sql[] = $key . ' = ' . $value;
+        }
+
+        return $sql;
+    }
 }

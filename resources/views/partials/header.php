@@ -1,3 +1,4 @@
+<?php @session_start(); ?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -6,7 +7,7 @@
     <meta name="author" content="Simonarde Lima">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title><?= ($titulo? $titulo . ' - ' : '') ?>Desafio VK</title>
+    <title><?= (isset($titulo) ? $titulo . ' - ' : '') ?>Desafio VK</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">

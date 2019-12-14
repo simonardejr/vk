@@ -11,6 +11,7 @@ class BaseController
     public function __construct()
     {
         $this->request = App::get('request')->data;
+        session_start();
     }
 
     public function view($view, $data=[]) {
@@ -21,5 +22,13 @@ class BaseController
 
     public function redirect($to) {
         header("Location: /{$to}");
+    }
+    
+    public function flash($message, $type="success")
+    {
+        $_SESSION['flash'] = [
+            'message' => $message,
+            'type' => $type
+        ];
     }
 }

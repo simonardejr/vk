@@ -11,6 +11,9 @@ $router->get('cartorio/editar', 'CartorioController@edit');
 $router->post('cartorio/editar', 'CartorioController@update');
 $router->get('cartorio/remover', 'CartorioController@destroy');
 
+$router->get('importar/xls', 'XlsController@index');
+$router->post('importar/xls', 'XlsController@import');
+
 $router->get('teste', function() {
     echo 'teste';
 });

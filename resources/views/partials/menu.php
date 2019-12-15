@@ -19,6 +19,12 @@
                     Importar XML
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/importar/xls">
+                    <span data-feather="file"></span>
+                    Importar XLS
+                </a>
+            </li>
         </ul>
 
         <!-- 

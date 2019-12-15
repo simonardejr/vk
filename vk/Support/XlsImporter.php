@@ -15,7 +15,7 @@ class XlsImporter
         foreach($xls as $node) {
             $node['ativo'] = static::adjustValueFromAtivo($node['ativo']);
 
-            if(static::checkIfExists($node, $table)) {
+            if(static::checkIfExists(['documento'=>$node['documento'], 'nome'=>$node['nome']], $table)) {
                 static::$exists++;
             }
             else {

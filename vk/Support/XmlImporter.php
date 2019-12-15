@@ -14,7 +14,7 @@ class XmlImporter
     {
         // $xml = $xml->convertToArray();
         foreach($xml as $node) {
-            if(static::checkIfExists($node, $table)) {
+            if(static::checkIfExists(['documento'=>$node['documento'], 'nome'=>$node['nome']], $table)) {
                 static::$exists++;
             }
             else {

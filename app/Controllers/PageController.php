@@ -21,7 +21,7 @@ class PageController extends BaseController
 
         $pagination = [
             'total' => $total,
-            'maxNumberOfPages' => round($total / 25),
+            'maxNumberOfPages' => ceil($total / 25),
         ];
 
         return $this->view('home', compact('cartorios', 'pagination', 'titulo'));

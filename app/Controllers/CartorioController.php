@@ -18,6 +18,7 @@ class CartorioController extends BaseController
 
         if ( ! $db->insert('cartorios', (array)$this->request) ) {
             $this->flash('Aconteceu um erro inesperado...', 'danger');
+            $this->redirect('');
         }
 
         $this->flash('Cartório adicionado com sucesso!');
@@ -55,6 +56,7 @@ class CartorioController extends BaseController
 
         if( ! $db->update('cartorios', $dados, ['id'=>$id]) ) {
             $this->flash('Aconteceu um erro inesperado...', 'danger');
+            $this->redirect('');
         }
 
         $this->flash('Cartório editado com sucesso!');
@@ -68,6 +70,7 @@ class CartorioController extends BaseController
 
         if ( ! App::get('database')->delete('cartorios', ['id'=>$id]) ) {
             $this->flash('Aconteceu um erro inesperado...', 'danger');
+            $this->redirect('');
         }
 
         $this->flash('Cartório removido com sucesso!');

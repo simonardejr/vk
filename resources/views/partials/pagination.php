@@ -1,3 +1,4 @@
+<?php if ( ! isset($_GET['page']) ) { $_GET['page'] = 1; } ?>
 <nav aria-label="Navigation">
     <ul class="pagination justify-content-center">
         <li class="page-item <?= (($_GET['page'] - 1) < 1 ? 'disabled' : ''); ?>">

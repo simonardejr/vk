@@ -3,8 +3,20 @@
 
     <?php include 'partials/flash.php'; ?>
 
-    <h2 class="border-bottom pb-2">Lista de Cartórios</h2>
-    <?php if( ! empty($cartorios) ) { ?>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap 
+        align-items-center pt-0 pb-2 mb-3 border-bottom">
+        <h2 class="">Lista de Cartórios</h2>
+        <?php if ( ! empty($cartorios) ) { ?>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2">
+                <a href="/cartorio/exportar" class="btn btn-sm btn-outline-secondary">
+                    Exportar
+                </a>
+            </div>
+        </div>
+        <?php } ?>
+    </div>
+    <?php if ( ! empty($cartorios) ) { ?>
     <div class="table-responsive">
         <table class="table table-striped table-sm table-bordered">
             <thead>

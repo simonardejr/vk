@@ -17,6 +17,8 @@ $router->post('importar/xls', 'XlsController@import');
 $router->get('comunicado', 'PageController@comunicado');
 $router->post('comunicado/enviar', 'PageController@send');
 
+$router->get('cartorio/exportar', 'XlsController@export');
+
 $router->get('teste', function() {
     echo 'teste';
 });

@@ -19,7 +19,7 @@ class XmlParser
     {
         $json  = json_encode($this->file);
 
-        return json_decode($json, true);
+        return json_decode($json, true)['cartorio'];
     }
 
     public function getNumberOfNodes($key)

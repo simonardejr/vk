@@ -1,5 +1,8 @@
 <?php include 'partials/header.php'; ?>
 <div class="mt-3">
+
+    <?php include 'partials/flash.php'; ?>
+
     <h2 class="border-bottom pb-2">Importar XLS</h2>
     <div class="table-responsive">
         <form action="/importar/xls" method="POST" enctype="multipart/form-data">

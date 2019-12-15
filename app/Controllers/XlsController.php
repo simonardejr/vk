@@ -4,8 +4,10 @@ namespace DesafioVk\App\Controllers;
 
 use DesafioVk\App\Controllers\BaseController;
 use DesafioVk\Vk\App;
-use DesafioVk\Vk\Support\XlsParser;
-use DesafioVk\Vk\Support\XlsImporter;
+use DesafioVk\Vk\Support\FileHandler;
+use DesafioVk\Vk\Support\ImportHandler;
+// use DesafioVk\Vk\Support\XlsParser;
+// use DesafioVk\Vk\Support\XlsImporter;
 use DesafioVk\Vk\Support\XlsExporter;
 
 class XlsController extends BaseController
@@ -21,10 +23,26 @@ class XlsController extends BaseController
 
             $fileName = $_FILES['arquivo']['tmp_name'];
 
-            XlsImporter::import( 
-                XlsParser::load($fileName)->convertToArray(),
-                'cartorios' 
+            if (strpos($_FILES['arquivo']['type'], 'spreadsheet') === false) {
+                $this->flash('O arquivo escolhido não pode ser importado, tente novamente.', 'danger');
+                $this->redirect('importar/xls');
+                return false;
+            }
+
+            $parser = FileHandler::getHandler($_FILES['arquivo']['type']);
+            $importer = ImportHandler::getHandler($_FILES['arquivo']['type']);
+
+            $importer->import(
+                $parser->load($fileName)->convertToArray(),
+                'cartorios'
             );
+
+            // XlsImporter::import( 
+            //     XlsParser::load($fileName)->convertToArray(),
+            //     'cartorios' 
+            // );
+
+            $this->flash('Arquivo importado com sucesso!');
 
             return $this->redirect('');
         }

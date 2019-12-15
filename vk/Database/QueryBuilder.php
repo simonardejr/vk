@@ -35,6 +35,7 @@ class QueryBuilder
             $stmt->execute();
 
             return $stmt->fetchAll(\PDO::FETCH_CLASS);
+
         } catch ( \PDOException $e ) {
             return false;
         }
@@ -50,14 +51,7 @@ class QueryBuilder
             ':' . implode(', :', array_keys($parameters)), 
         );
 
-        try {
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute($parameters);
-
-            return true;
-        } catch( \PDOException $e ) {
-            die('Whoops...' . $e->getMessage());
-        }
+        return $this->execute($sql, $parameters);
     }
 
     public function update($table, $parameters, $where)
@@ -70,14 +64,7 @@ class QueryBuilder
             implode(', ', $this->prepareFields($where)), 
         );
 
-        try {
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute($parameters);
-
-            return true;
-        } catch( \PDOException $e ) {
-            die('Whoops...' . $e->getMessage());
-        }
+        return $this->execute($sql, $parameters);
     }
 
     public function delete($table, $id)
@@ -87,13 +74,19 @@ class QueryBuilder
             implode(' ', $this->prepareFields($id))
         );
 
+        return $this->execute($sql);
+    }
+
+    public function execute($sql, $parameters=[])
+    {
         try {
             $stmt = $this->pdo->prepare($sql);
-            $stmt->execute($id);
+            $stmt->execute($parameters);
 
             return true;
+
         } catch( \PDOException $e ) {
-            die('Whoops...' . $e->getMessage());
+            die( 'Whoops... ' . $e->getMessage() );
         }
     }
 

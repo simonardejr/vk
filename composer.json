@@ -4,5 +4,8 @@
             "DesafioVk\\Vk\\": "vk/",
             "DesafioVk\\App\\": "app/"
         }
+    },
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.10"
     }
 }

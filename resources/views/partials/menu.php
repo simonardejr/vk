@@ -14,6 +14,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="/comunicado">
+                    <span data-feather="mail"></span>
+                    Enviar comunicado
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/importar/xml">
                     <span data-feather="file"></span>
                     Importar XML

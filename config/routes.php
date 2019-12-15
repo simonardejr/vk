@@ -14,6 +14,9 @@ $router->get('cartorio/remover', 'CartorioController@destroy');
 $router->get('importar/xls', 'XlsController@index');
 $router->post('importar/xls', 'XlsController@import');
 
+$router->get('comunicado', 'PageController@comunicado');
+$router->post('comunicado/enviar', 'PageController@send');
+
 $router->get('teste', function() {
     echo 'teste';
 });

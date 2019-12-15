@@ -12,7 +12,7 @@
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
                 <a href="/cartorio/exportar" class="btn btn-sm btn-outline-secondary">
-                    Exportar
+                    <span data-feather="download-cloud"></span> Exportar
                 </a>
             </div>
         </div>

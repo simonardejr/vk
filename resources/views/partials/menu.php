@@ -9,7 +9,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/cartorio/adicionar">
-                    <span data-feather="plus"></span>
+                    <span data-feather="plus-circle"></span>
                     Adicionar cartório
                 </a>
             </li>
@@ -21,13 +21,13 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/importar/xml">
-                    <span data-feather="file"></span>
+                    <span data-feather="upload-cloud"></span>
                     Importar XML
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/importar/xls">
-                    <span data-feather="file"></span>
+                    <span data-feather="upload-cloud"></span>
                     Importar XLS
                 </a>
             </li>

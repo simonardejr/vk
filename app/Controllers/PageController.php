@@ -10,10 +10,21 @@ class PageController extends BaseController
     public function home()
     {
         // echo 'Hello World!';
-        $titulo = 'Lista de Cartórios';
-        $cartorios = App::get('database')->selectAll('cartorios');
 
-        return $this->view('home', compact('cartorios', 'titulo'));
+        $db = App::get('database');
+
+        $titulo = 'Lista de Cartórios';
+
+        $cartorios = $db->paginate('cartorios', ($_REQUEST['page'] ?? 1));
+
+        $total = $db->getTotalRecords('cartorios')->total;
+
+        $pagination = [
+            'total' => $total,
+            'maxNumberOfPages' => round($total / 25),
+        ];
+
+        return $this->view('home', compact('cartorios', 'pagination', 'titulo'));
     }
 
     public function comunicado()

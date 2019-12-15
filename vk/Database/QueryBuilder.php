@@ -90,6 +90,34 @@ class QueryBuilder
         }
     }
 
+    public function paginate($table, $page=1, $limit=25)
+    {
+        $offset = ( ($page * $limit) - $limit);
+
+        $sql = sprintf('SELECT * FROM %s LIMIT %s, %s',
+            $table,
+            $offset,
+            $limit
+        );
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_CLASS);
+    }
+
+    public function getTotalRecords($table)
+    {
+        $sql = sprintf('SELECT count(*) as total FROM %s',
+            $table,
+        );
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_CLASS)[0] ?? 0;
+    }
+
     public function prepareFields($fields)
     {
         $sql = [];

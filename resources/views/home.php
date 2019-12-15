@@ -48,6 +48,11 @@
             </tbody>
         </table>
     </div>
+
+    <?php if ( isset($pagination) ) { ?>
+        <?php include 'partials/pagination.php'; ?>
+    <?php } ?>
+
     <?php } else { ?>
     <h5>Nenhum cartório cadastrado.</h5>
     <?php } ?>

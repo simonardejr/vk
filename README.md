@@ -2,17 +2,24 @@
 $ git clone https://github.com/simonardejr/vk.git
 
 ## 2) Instale as dependências
-``` composer install```
+acesse o diretório do clone:
 
-## 3) Configure suas credenciais do MySQL
+``` $ cd vk``` (ou o diretório informado durante o clone)
+
+e instale as dependências usando o composer
+
+`$ composer install`
+
+## 3) Importe o dump do banco
+Existe um dump do banco de testes no diretório "arquivos". 
+
+Esse dump criará o banco *"db_de_teste"* que está configurado no arquivo [config/database.php](https://github.com/simonardejr/vk/blob/master/config/database.php)
+
+## 4) Configure suas credenciais do MySQL
 Configure sua conexão no arquivo [config/database.php](https://github.com/simonardejr/vk/blob/master/config/database.php)
 
-Obs.: Existe um dump do banco de testes no diretório "arquivos". 
-
-Esse dump criará o banco "db_de_teste" que está configurado no arquivo [config/database.php](https://github.com/simonardejr/vk/blob/master/config/database.php)
-
-## 4) Execute o servidor built in do php
+## 5) Execute o servidor built in do php
 ```$ php -S 0.0.0.0:8000 -t public/```
 
-## 5) Acesse o endereço no seu navegador
+## 6) Acesse o endereço no seu navegador
 ```http://localhost:8000```
